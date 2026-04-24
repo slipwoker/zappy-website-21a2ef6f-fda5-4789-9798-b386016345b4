@@ -52,6 +52,54 @@ Product Details - פטניק
 https://example.com/category/:slug
 Products - פטניק
 
+### Home (HE)
+https://example.com/he/
+Discover premium pet supplies for dogs, cats, and more at פטניק. Shop top-quality food, toys, and accessories from a trusted online pet store. Order today!
+
+### Features (HE)
+https://example.com/he/features
+Explore פטניק&#39;s full range of premium pet products for dogs and cats — from nutritious food to fun toys. See why pet lovers choose us for quality and value.
+
+### About (HE)
+https://example.com/he/about
+פטניק was built by passionate animal lovers dedicated to bringing pet owners the finest supplies available. Learn our story and the mission that drives every product we carry.
+
+### Contact (HE)
+https://example.com/he/contact
+Reach out to פטניק&#39;s friendly team for expert advice on pet food, accessories, and care products. We&#39;re here to help every pet owner find exactly what their animal needs.
+
+### Products (HE)
+https://example.com/he/products
+Our Products - פטניק
+
+### Cart (HE)
+https://example.com/he/cart
+Your Cart
+
+### Checkout (HE)
+https://example.com/he/checkout
+Checkout
+
+### Login (HE)
+https://example.com/he/login
+Customer Login
+
+### Account (HE)
+https://example.com/he/account
+My Account
+
+### Order Success (HE)
+https://example.com/he/order-success
+Thank you for your order
+
+### Product Detail (HE)
+https://example.com/he/product/:slug
+Product Details - פטניק
+
+### Category (HE)
+https://example.com/he/category/:slug
+Products - פטניק
+
 ## Legal & Policy
 
 ### Privacy Policy
