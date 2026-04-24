@@ -11163,6 +11163,10 @@ body.accessibility-widget-visible ._access-menu {
     display: none !important;
   }
 }
+
+.navbar .logo.nav-logo {
+  filter: brightness(0) invert(1);
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
