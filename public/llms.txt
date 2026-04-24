@@ -4,20 +4,20 @@
 
 ## Pages
 
-### Home
+### דף הבית
 https://example.com
 Discover premium pet supplies for dogs, cats, and more at פטניק. Shop top-quality food, toys, and accessories from a trusted online pet store. Order today!
 
-### Features
-https://example.com/features
+### יתרונות
+https://example.com/advantages
 Explore פטניק&#39;s full range of premium pet products for dogs and cats — from nutritious food to fun toys. See why pet lovers choose us for quality and value.
 
-### About
-https://example.com/about
+### אודות
+https://example.com/about-us
 פטניק was built by passionate animal lovers dedicated to bringing pet owners the finest supplies available. Learn our story and the mission that drives every product we carry.
 
-### Contact
-https://example.com/contact
+### צור קשר
+https://example.com/contact-us
 Reach out to פטניק&#39;s friendly team for expert advice on pet food, accessories, and care products. We&#39;re here to help every pet owner find exactly what their animal needs.
 
 ### Products
