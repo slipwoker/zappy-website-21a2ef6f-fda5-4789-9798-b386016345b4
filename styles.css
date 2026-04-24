@@ -11173,6 +11173,23 @@ body.accessibility-widget-visible ._access-menu {
   border-radius: 8px;
   padding: 4px 10px;
 }
+
+.navbar .nav-brand {
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar .nav-brand {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar .logo.nav-logo {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
