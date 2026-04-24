@@ -1,0 +1,79 @@
+# Business — Generative Engine Optimization Map
+
+---
+
+## Pages
+
+### Home
+https://example.com
+Discover premium pet supplies for dogs, cats, and more at פטניק. Shop top-quality food, toys, and accessories from a trusted online pet store. Order today!
+
+### Features
+https://example.com/features
+Explore פטניק&#39;s full range of premium pet products for dogs and cats — from nutritious food to fun toys. See why pet lovers choose us for quality and value.
+
+### About
+https://example.com/about
+פטניק was built by passionate animal lovers dedicated to bringing pet owners the finest supplies available. Learn our story and the mission that drives every product we carry.
+
+### Contact
+https://example.com/contact
+Reach out to פטניק&#39;s friendly team for expert advice on pet food, accessories, and care products. We&#39;re here to help every pet owner find exactly what their animal needs.
+
+### Products
+https://example.com/products
+Our Products - פטניק
+
+### Cart
+https://example.com/cart
+Your Cart
+
+### Checkout
+https://example.com/checkout
+Checkout
+
+### Login
+https://example.com/login
+Customer Login
+
+### Account
+https://example.com/account
+My Account
+
+### Order Success
+https://example.com/order-success
+Thank you for your order
+
+### Product Detail
+https://example.com/product/:slug
+Product Details - פטניק
+
+### Category
+https://example.com/category/:slug
+Products - פטניק
+
+## Legal & Policy
+
+### Privacy Policy
+https://example.com/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://example.com/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://example.com/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About Business
+---
+
+# Additional Resources
+
+- **Sitemap**: https://example.com/sitemap.xml
+- **Robots.txt**: https://example.com/robots.txt
