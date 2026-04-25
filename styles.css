@@ -15435,6 +15435,11 @@ main,
   padding: 0 !important;
 }
 }
+
+.pets-categories-section .pet-card-wrapper img.pet-card-img,
+.pets-categories-section .pet-card-wrapper [data-zappy-zoom-wrapper="true"] {
+  display: none !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
