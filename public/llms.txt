@@ -68,10 +68,6 @@ https://example.com/he/about
 https://example.com/he/contact
 Reach out to פטניק&#39;s friendly team for expert advice on pet food, accessories, and care products. We&#39;re here to help every pet owner find exactly what their animal needs.
 
-### Products (HE)
-https://example.com/he/products
-Our Products - פטניק
-
 ### Cart (HE)
 https://example.com/he/cart
 Your Cart
@@ -95,10 +91,6 @@ Thank you for your order
 ### Product Detail (HE)
 https://example.com/he/product/:slug
 Product Details - פטניק
-
-### Category (HE)
-https://example.com/he/category/:slug
-Products - פטניק
 
 ## Legal & Policy
 
