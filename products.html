@@ -418,6 +418,128 @@
   </div>
 </aside>
   <script>
+  (function() {
+    function injectQuickAdd(card) {
+      if (card.querySelector('.zappy-quick-add-row')) return;
+      var productId = card.getAttribute('data-product-id');
+      if (!productId) return;
+
+      // Only inject for simple products (no variants required to choose)
+      var hasVariants = card.classList.contains('has-variants') || card.querySelector('.product-variants');
+
+      var row = document.createElement('div');
+      row.className = 'zappy-quick-add-row';
+      row.style.cssText = 'display:flex;align-items:center;gap:8px;padding:10px 14px 14px;width:100%;box-sizing:border-box;';
+
+      var qtyWrap = document.createElement('div');
+      qtyWrap.style.cssText = 'display:flex;align-items:center;border:1.5px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff;flex-shrink:0;';
+
+      var btnMinus = document.createElement('button');
+      btnMinus.textContent = '−';
+      btnMinus.setAttribute('aria-label', 'הפחת כמות');
+      btnMinus.style.cssText = 'background:none;border:none;color:#1f2937;font-size:16px;font-weight:700;width:30px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;';
+
+      var qtyInput = document.createElement('input');
+      qtyInput.type = 'number';
+      qtyInput.value = '1';
+      qtyInput.min = '1';
+      qtyInput.setAttribute('aria-label', 'כמות');
+      qtyInput.style.cssText = 'width:34px;height:34px;border:none;text-align:center;font-size:14px;font-weight:600;color:#1f2937;background:transparent;outline:none;padding:0;';
+
+      var btnPlus = document.createElement('button');
+      btnPlus.textContent = '+';
+      btnPlus.setAttribute('aria-label', 'הגדל כמות');
+      btnPlus.style.cssText = 'background:none;border:none;color:#1f2937;font-size:16px;font-weight:700;width:30px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;';
+
+      btnMinus.addEventListener('click', function(e) {
+        e.preventDefault(); e.stopPropagation();
+        var v = parseInt(qtyInput.value) || 1;
+        if (v > 1) qtyInput.value = v - 1;
+      });
+      btnPlus.addEventListener('click', function(e) {
+        e.preventDefault(); e.stopPropagation();
+        qtyInput.value = (parseInt(qtyInput.value) || 1) + 1;
+      });
+
+      qtyWrap.appendChild(btnMinus);
+      qtyWrap.appendChild(qtyInput);
+      qtyWrap.appendChild(btnPlus);
+
+      var addBtn = document.createElement('button');
+      addBtn.className = 'zappy-quick-add-btn';
+      addBtn.innerHTML = '🛒 לאגאלה';
+      addBtn.style.cssText = 'flex:1;background:#2F855A;color:#fff;border:none;border-radius:8px;padding:0 12px;height:34px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:6px;transition:background 0.18s;';
+
+      addBtn.addEventListener('mouseenter', function() { this.style.background = '#256545'; });
+      addBtn.addEventListener('mouseleave', function() { this.style.background = '#2F855A'; });
+
+      addBtn.addEventListener('click', function(e) {
+        e.preventDefault(); e.stopPropagation();
+        var qty = parseInt(qtyInput.value) || 1;
+        var btn = this;
+
+        // If product has variants, navigate to product page
+        if (hasVariants) {
+          var link = card.querySelector('a[href*="/product/"]');
+          if (link) { window.location.href = link.href; return; }
+        }
+
+        // Try Zappy cart API
+        var addFn = window.ZappyCart && window.ZappyCart.addItem
+          ? window.ZappyCart.addItem
+          : (window.zappyAddToCart || null);
+
+        if (addFn) {
+          addFn(productId, qty);
+        } else {
+          // Fallback: dispatch custom event
+          document.dispatchEvent(new CustomEvent('zappy:add-to-cart', {
+            detail: { productId: productId, quantity: qty }
+          }));
+        }
+
+        btn.innerHTML = '✓ נוסף!';
+        btn.style.background = '#F4B400';
+        btn.style.color = '#1f2937';
+        setTimeout(function() {
+          btn.innerHTML = '🛒 לאגאלה';
+          btn.style.background = '#2F855A';
+          btn.style.color = '#fff';
+        }, 1800);
+      });
+
+      row.appendChild(qtyWrap);
+      row.appendChild(addBtn);
+      card.appendChild(row);
+    }
+
+    function injectAll() {
+      var cards = document.querySelectorAll('#zappy-product-grid .product-card, .product-grid .product-card, .featured-grid .product-card');
+      cards.forEach(function(c) { injectQuickAdd(c); });
+    }
+
+    // Run on existing cards
+    injectAll();
+
+    // Watch for dynamically added cards
+    var grids = ['zappy-product-grid', 'zappy-featured-products', 'zappy-featured-categories', 'related-products-grid'];
+    grids.forEach(function(id) {
+      var el = document.getElementById(id) || document.querySelector('.product-grid');
+      if (!el) return;
+      var obs = new MutationObserver(function() { injectAll(); });
+      obs.observe(el, { childList: true, subtree: true });
+    });
+
+    // Also watch body for any grid appearing late
+    var bodyObs = new MutationObserver(function() { injectAll(); });
+    bodyObs.observe(document.body, { childList: true, subtree: false });
+
+    window.addEventListener('load', injectAll);
+    setTimeout(injectAll, 800);
+    setTimeout(injectAll, 2000);
+  })();
+  </script>
+  <script>
   <!-- Search handling for e-commerce pages -->
   (function() {
     // Unified search function that works in both preview and deployed modes
