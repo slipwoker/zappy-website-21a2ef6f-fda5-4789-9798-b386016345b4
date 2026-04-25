@@ -7113,12 +7113,6 @@ body.accessibility-widget-visible ._access-menu {
 
 
 
-
-
-
-
-
-
 /* ==ZAPPY V2 E-COMMERCE THEME CSS== */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 /* V2 E-COMMERCE CSS - Clean V2 Variables Only                                  */
@@ -15287,6 +15281,111 @@ main,
 }
 
 /* ==END ZAPPY V2 E-COMMERCE THEME CSS== */
+
+.pets-categories-section .pet-card-actions {
+  display: none !important;
+}
+
+.products-section .product-card .quick-add-row,
+.related-products-section .product-card .quick-add-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.products-section .product-card .qty-control,
+.related-products-section .product-card .qty-control {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-btn);
+  overflow: hidden;
+  background: var(--bg-light);
+  flex-shrink: 0;
+}
+
+.products-section .product-card .qty-btn,
+.related-products-section .product-card .qty-btn {
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 16px;
+  font-weight: 700;
+  width: 30px;
+  height: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  padding: 0;
+}
+
+.products-section .product-card .qty-btn:hover,
+.related-products-section .product-card .qty-btn:hover {
+  background: var(--border-light);
+}
+
+.products-section .product-card .qty-input,
+.related-products-section .product-card .qty-input {
+  width: 34px;
+  height: 34px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: transparent;
+  outline: none;
+  padding: 0;
+}
+
+.products-section .product-card .qty-input::-webkit-inner-spin-button,
+.products-section .product-card .qty-input::-webkit-outer-spin-button,
+.related-products-section .product-card .qty-input::-webkit-inner-spin-button,
+.related-products-section .product-card .qty-input::-webkit-outer-spin-button {
+  margin: 0;
+}
+
+.products-section .product-card .quick-add-btn,
+.related-products-section .product-card .quick-add-btn {
+  flex: 1;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-btn);
+  padding: 0 12px;
+  height: 34px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.products-section .product-card .quick-add-btn:hover,
+.related-products-section .product-card .quick-add-btn:hover {
+  background: #256545;
+  box-shadow: var(--shadow-btn-hover);
+  transform: translateY(-1px);
+}
+
+.products-section .product-card .quick-add-btn:active,
+.related-products-section .product-card .quick-add-btn:active {
+  transform: translateY(0);
+}
+
+.products-section .product-card .quick-add-btn.added,
+.related-products-section .product-card .quick-add-btn.added {
+  background: var(--accent);
+  color: var(--text-dark);
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
