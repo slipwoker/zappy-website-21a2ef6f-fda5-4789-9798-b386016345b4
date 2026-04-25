@@ -304,7 +304,9 @@
     </style>
 </head>
 <body>
-<div class="mobile-search-panel" id="mobile-search-panel">
+
+
+    <div class="mobile-search-panel" id="mobile-search-panel">
       <div class="search-wrapper">
         <input type="text" id="mobile-search-input" placeholder="Search products..." autocomplete="off">
         <button class="search-submit" id="mobile-search-submit" title="Search">
@@ -343,8 +345,7 @@
 
     <li class="menu-item-has-children zappy-products-dropdown">
       <a href="/products">
-        Products
-        
+        מוצרים
         <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M6 9l6 6 6-6"></path>
         </svg>
@@ -807,267 +808,15 @@
   <main>
     
 
-    <section style="width:100%;max-width:100%;box-sizing:border-box;background:var(--bg-dark);overflow:hidden;position:relative;" data-zappy-section="true" class="section" id="featured-products">
-<style>
-  .pets-grid-section {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    background: var(--bg-dark);
-    position: relative;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  .pets-grid-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50vh 50vh;
-    width: 100%;
-    min-height: 100vh;
-  }
-
-  .pet-card {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
-  .pet-card-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 0;
-  }
-
-  .pet-card:hover .pet-card-bg {
-    transform: scale(1.08);
-  }
-
-  .pet-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(160deg, rgba(31,41,55,0.1) 0%, rgba(31,41,55,0.75) 100%);
-    z-index: 1;
-    transition: background 0.4s ease;
-  }
-
-  .pet-card:hover .pet-card-overlay {
-    background: linear-gradient(160deg, rgba(47,133,90,0.15) 0%, rgba(31,41,55,0.6) 100%);
-  }
-
-  .pet-card-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 32px;
-    z-index: 10;
-    transform: translateY(8px);
-    transition: transform 0.4s ease;
-  }
-
-  .pet-card:hover .pet-card-content {
-    transform: translateY(0);
-  }
-
-  .pet-card-line {
-    width: 0;
-    height: 3px;
-    background: var(--accent);
-    margin-bottom: 12px;
-    transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border-radius: 2px;
-  }
-
-  .pet-card:hover .pet-card-line {
-    width: 48px;
-  }
-
-  .pet-card h1 {
-    font-family: system-ui, sans-serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 900;
-    color: var(--text-light);
-    margin: 0;
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
-    line-height: 1;
-    direction: rtl;
-  }
-
-  .pet-card-number {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    z-index: 10;
-    opacity: 0;
-    transform: translateY(-6px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-
-  .pet-card:hover .pet-card-number {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Corner accent */
-  .pet-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-top: 60px solid var(--accent);
-    border-right: 60px solid transparent;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .pet-card:hover::after {
-    opacity: 0.15;
-  }
-
-  /* Divider lines between cards */
-  .pet-card:nth-child(1),
-  .pet-card:nth-child(2) {
-    border-bottom: 1px solid rgba(244,180,0,0.2);
-  }
-
-  .pet-card:nth-child(1),
-  .pet-card:nth-child(3) {
-    border-right: 1px solid rgba(244,180,0,0.2);
-  }
-
-  /* Center cross accent */
-  .pets-center-badge {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 64px;
-    height: 64px;
-    background: var(--accent);
-    border-radius: 50%;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 0 8px rgba(244,180,0,0.15), 0 0 0 16px rgba(244,180,0,0.07);
-    animation: badgePulse 3s ease-in-out infinite;
-  }
-
-  .pets-center-badge svg {
-    width: 28px;
-    height: 28px;
-    fill: var(--bg-dark);
-  }
-
-  @keyframes badgePulse {
-    0%, 100% { box-shadow: 0 0 0 8px rgba(244,180,0,0.15), 0 0 0 16px rgba(244,180,0,0.07); }
-    50% { box-shadow: 0 0 0 12px rgba(244,180,0,0.2), 0 0 0 24px rgba(244,180,0,0.05); }
-  }
-
-  @media (max-width: 768px) {
-    .pets-grid-wrapper {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, 55vw);
-      min-height: unset;
-    }
-
-    .pet-card:nth-child(1),
-    .pet-card:nth-child(3) {
-      border-right: none;
-    }
-
-    .pet-card:nth-child(1),
-    .pet-card:nth-child(2),
-    .pet-card:nth-child(3) {
-      border-bottom: 1px solid rgba(244,180,0,0.2);
-    }
-
-    .pet-card:nth-child(4) {
-      border-bottom: none;
-    }
-
-    .pet-card-content {
-      padding: 20px;
-    }
-
-    .pets-center-badge {
-      display: none;
-    }
-  }
-</style>
-
-<div class="pets-grid-section">
-  <div class="pets-grid-wrapper">
-
-    <!-- Card 1: Cat -->
-    <div class="pet-card">
-      <div class="pet-card-bg" style="background-size:cover;background-position:center;"></div>
-      <div class="pet-card-overlay"></div>
-      <span class="pet-card-number">01</span>
-      <div class="pet-card-content">
-        <div class="pet-card-line"></div>
-        <h1>חתול</h1>
+    <section class="featured-products-section" id="featured-products" data-zappy-dynamic="true" style="margin-top: -70px !important; padding-top: 70px !important;">
+      <div class="container">
+        <h2 class="section-title" >קטלוג מוצרים</h2>
+        <div class="product-grid featured-grid" id="zappy-featured-products"><div class="no-featured-products">No featured products yet. Check out all our products!</div></div>
+        <div class="view-all-products">
+          <a href="/products" class="btn btn-primary" data-element-type="button" data-element-id="btn-1777054524423-wycny2iet" data-native-element="true">View All Products →</a>
+        </div>
       </div>
-    </div>
-
-    <!-- Card 2: Dog -->
-    <div class="pet-card">
-      <div class="pet-card-bg" style="background-size:cover;background-position:center;"></div>
-      <div class="pet-card-overlay"></div>
-      <span class="pet-card-number">02</span>
-      <div class="pet-card-content">
-        <div class="pet-card-line"></div>
-        <h1>כלב</h1>
-      </div>
-    </div>
-
-    <!-- Card 3: Parrot -->
-    <div class="pet-card">
-      <div class="pet-card-bg" style="background-size:cover;background-position:center;"></div>
-      <div class="pet-card-overlay"></div>
-      <span class="pet-card-number">03</span>
-      <div class="pet-card-content">
-        <div class="pet-card-line"></div>
-        <h1>תוכי</h1>
-      </div>
-    </div>
-
-    <!-- Card 4: Rabbit -->
-    <div class="pet-card">
-      <div class="pet-card-bg" style="background-size:cover;background-position:center;"></div>
-      <div class="pet-card-overlay"></div>
-      <span class="pet-card-number">04</span>
-      <div class="pet-card-content">
-        <div class="pet-card-line"></div>
-        <h1>ארנב</h1>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Center badge -->
-  <div class="pets-center-badge">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.5 11.5A4 4 0 0 1 8.5 7.5c.34 0 .67.04 1 .11A4 4 0 0 1 11.5 4.5a4 4 0 0 1 1.5.29A4 4 0 0 1 15.5 4a4 4 0 0 1 4 4c0 .3-.03.59-.09.87A4 4 0 0 1 20.5 12a4 4 0 0 1-4 4h-9a4 4 0 0 1-3-6.5z"></path>
-    </svg>
-  </div>
-</div>
-
-</section>
+    </section>
   
 
     <section class="featured-categories-section" id="featured-categories" data-zappy-dynamic="true">
@@ -1082,50 +831,51 @@
 
 
 
-<section class="pets-categories-section" id="pets-categories-section" style="min-height: 505.2px !important;">
+<section class="pets-categories-section">
   <div class="pets-categories-container">
-    <div class="pets-grid zappy-preserve-css-grid" id="zappy-auto-grid-1777100819752-yox1yw" data-zappy-auto-grid="true" data-original-item-width="369" data-original-gap="normal" style="display: grid; --zappy-grid-cols: repeat(2, minmax(0, 1fr)); align-items: stretch !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;" data-zappy-explicit-columns="true">
+    <div class="pets-grid">
+
       <!-- Card 1: Cat -->
-      <div class="pet-card-wrapper" data-grid-item-index="0" style="text-align: center; display: flex !important; flex-direction: column !important; justify-content: flex-start !important; align-items: stretch !important; align-self: stretch !important; height: 100% !important;">
-        <a data-zappy-click-action="link" href="/category/cat" style="display: none !important;"><div data-zappy-zoom-wrapper="true" data-element-id="img-1777100819702-dd9q9b2he" data-element-type="image" data-zappy-zoom-wrapper-width="1475px" data-zappy-zoom-wrapper-height="1475px" data-zappy-zoom-wrapper-width-mode="px" style="display: none !important;" data-zappy-zoom-clip="true" data-zappy-wrapper-margins-applied="true" data-zappy-click-action="link"><img src="/assets/image-pet-cat-1-1777121437491-7msaz4.webp?v=1777121439254" alt="Beautiful fluffy cat" class="pet-card-img" data-placeholder="pet-cat-1" data-context="Beautiful fluffy domestic cat with soft fur, sitting gracefully, studio portrait, warm lighting, high quality pet photography" data-element-type="image" data-element-id="img-1777100819702-dd9q9b2he" style="cursor: pointer; display: none !important; object-fit: cover !important; object-position: 50% 50% !important; margin: 0px !important; left: 0% !important; top: 0% !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important;" data-zappy-object-position="50% 50%" data-zappy-zoom="1" data-zappy-click-action="link" data-zappy-original-width="1475" data-zappy-original-height="1475"></div></a>
-            <br>
-              <h1><span class="pet-card-label">חתול</span></h1>
-        
-        
-      </div>
+      <a href="/products" class="pet-card" aria-label="Кошка — перейти к товарам">
+        <div class="pet-card-image-wrapper">
+          <img src="/assets/image-1777055130802-av8sfc.webp?v=1777055130802" alt="Beautiful fluffy cat" class="pet-card-img" data-placeholder="pet-cat-1" data-context="Beautiful fluffy domestic cat with soft fur, sitting gracefully, studio portrait, warm lighting, high quality pet photography">
+          <div class="pet-card-overlay">
+            <span class="pet-card-label">Кошка</span>
+          </div>
+        </div>
+      </a>
 
       <!-- Card 2: Dog -->
-      <div class="pet-card-wrapper" data-grid-item-index="1" style="text-align: center;">
-        <a href="/products" class="pet-card" aria-label="כלב — עבור למוצרים">
-          <div class="pet-card-image-wrapper" >
-            <img src="/assets/image-1777055151656-dwbdm9.webp?v=1777055151656" alt="Happy playful dog" class="pet-card-img" data-placeholder="pet-dog-1" data-context="Happy cheerful dog with tongue out, friendly expression, outdoor or studio setting, vibrant colors, professional pet photography" data-element-type="image" data-element-id="img-1777100819702-nc4vhvu44" style="object-fit: cover; object-position: 50% 50%; display: none !important;">
-            <br>
-              <h1><span class="pet-card-label">כלב</span></h1></div>
-        </a>
-        
-      </div>
+      <a href="/products" class="pet-card" aria-label="Собака — перейти к товарам">
+        <div class="pet-card-image-wrapper">
+          <img src="/assets/image-1777055151656-dwbdm9.webp?v=1777055151656" alt="Happy playful dog" class="pet-card-img" data-placeholder="pet-dog-1" data-context="Happy cheerful dog with tongue out, friendly expression, outdoor or studio setting, vibrant colors, professional pet photography">
+          <div class="pet-card-overlay">
+            <span class="pet-card-label">Собака</span>
+          </div>
+        </div>
+      </a>
 
       <!-- Card 3: Rabbit -->
-      <div class="pet-card-wrapper" data-grid-item-index="2" style="text-align: center;">
-        <a href="/products" class="pet-card" aria-label="תוכי — עבור למוצרים">
-            <img src="/assets/image-1777055192651-0zrs4o.webp?v=1777055192651" alt="Colorful tropical parrot" class="pet-card-img" data-placeholder="pet-parrot-1" data-context="Vibrant colorful tropical parrot with bright feathers, green red blue plumage, perched on branch, professional wildlife pet photography" data-element-type="image" data-element-id="img-1777100819702-9zsagjhss" style="outline: none; display: none !important;">
-            <br>
-              <h1><span class="pet-card-label">תוכי</span></h1>
-        </a>
-        
-      </div><div class="pet-card-wrapper" data-grid-item-index="3" style="text-align: center;">
-        <a href="/products" class="pet-card" aria-label="ארנב — עבור למוצרים">
-          <div class="pet-card-image-wrapper" >
-            <img src="/assets/image-1777055171161-hv27jg.webp?v=1777055171161" alt="Cute fluffy rabbit" class="pet-card-img" data-placeholder="pet-rabbit-1" data-context="Adorable cute fluffy white rabbit with long ears, close-up portrait, soft natural background, professional pet photography" data-element-type="image" data-element-id="img-1777100819702-ocm4cohcq" style="display: none !important;">
-            <br>
-              <h1><span class="pet-card-label">ארנב</span></h1></div>
-        </a>
-        
-      </div>
+      <a href="/products" class="pet-card" aria-label="Кролик — перейти к товарам">
+        <div class="pet-card-image-wrapper">
+          <img src="/assets/image-1777055171161-hv27jg.webp?v=1777055171161" alt="Cute fluffy rabbit" class="pet-card-img" data-placeholder="pet-rabbit-1" data-context="Adorable cute fluffy white rabbit with long ears, close-up portrait, soft natural background, professional pet photography">
+          <div class="pet-card-overlay">
+            <span class="pet-card-label">Кролик</span>
+          </div>
+        </div>
+      </a>
 
       <!-- Card 4: Parrot -->
-      
-</div>
+      <a href="/products" class="pet-card" aria-label="Попугай — перейти к товарам">
+        <div class="pet-card-image-wrapper">
+          <img src="/assets/image-1777055192651-0zrs4o.webp?v=1777055192651" alt="Colorful tropical parrot" class="pet-card-img" data-placeholder="pet-parrot-1" data-context="Vibrant colorful tropical parrot with bright feathers, green red blue plumage, perched on branch, professional wildlife pet photography">
+          <div class="pet-card-overlay">
+            <span class="pet-card-label">Попугай</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
   </div>
 </section><section class="home-trust-signals-section" data-layout-spec="Home-trust-signals" id="home-trust-signals-section">
   <div class="home-trust-signals-container">
@@ -1322,7 +1072,9 @@
     <i class="fab fa-whatsapp"></i>
   </a>
   
-  <div data-integration="accessibility:toolbar"></div>
+  <script src="/script.js"></script>
+
+    <div data-integration="accessibility:toolbar"></div>
 
     <script src="/script.js"></script>
 
@@ -1499,148 +1251,6 @@
       if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileLangMenu); }
       else { initMobileLangMenu(); }
       window.addEventListener('resize', function() { clearTimeout(window._mlrt); window._mlrt = setTimeout(initMobileLangMenu, 250); });
-    })();
-    </script>
-
-    <script>
-    (function(){
-      var _applied=false;
-      function _isHeroBg(w){var img=w.querySelector('img');if(img&&(img.getAttribute('data-hero-bg')==='true'||img.getAttribute('data-hero-background')==='true'))return true;var p=(w.style.position||'').replace(/\s*!important\s*/g,'').trim();var ww=(w.style.width||'').replace(/\s*!important\s*/g,'').trim();var hh=(w.style.height||'').replace(/\s*!important\s*/g,'').trim();return p==='absolute'&&ww==='100%'&&hh==='100%';}
-      function fixDesktopWrappers(){
-        // No-op: desktop wrapper restoration is handled by ZAPPY_PUBLISHED_ZOOM_WRAPPER_RUNTIME
-        // in script.js (restoreWrapperDimensions). The old inflation logic here was expanding
-        // small wrappers (e.g. 139px logo wrappers) to their parent width, conflicting with
-        // the correct stored dimensions.
-      }
-      function _parsePos(s){var x=50,y=50;try{var m=(s||'').match(/(-?d+(?:.d+)?)%s+(-?d+(?:.d+)?)%/);if(m){x=parseFloat(m[1]);y=parseFloat(m[2]);}}catch(e){}if(!isFinite(x))x=50;if(!isFinite(y))y=50;return{x:Math.max(0,Math.min(100,x)),y:Math.max(0,Math.min(100,y))};}
-      function _coverPct(iA,cA){if(!isFinite(iA)||iA<=0||!isFinite(cA)||cA<=0)return{w:100,h:100};if(iA>=cA)return{w:(iA/cA)*100,h:100};return{w:100,h:(cA/iA)*100};}
-      function applyMobile(){
-        if(_applied)return;_applied=true;
-        document.querySelectorAll('[data-zappy-zoom-wrapper="true"]').forEach(function(w){
-          var cw=w.style.getPropertyValue('width');
-          if(!cw||cw==='100%')return;
-          if(!w._zappyDesktop)w._zappyDesktop={wStyle:w.getAttribute('style')};
-          var img=w.querySelector('img');
-          if(!img)return;
-          if(!img._zappyDesktop)img._zappyDesktop={src:img.getAttribute('src'),style:img.getAttribute('style')};
-          var mobileZoomStr=img.getAttribute('data-zappy-mobile-zoom');
-          var mobileZoom=parseFloat(mobileZoomStr);
-          var mobileSrc=img.getAttribute('data-zappy-mobile-src');
-          var mobilePos=img.getAttribute('data-zappy-mobile-object-position');
-          var hasMobileOverrides=mobilePos||mobileZoomStr;
-          var parentOvf=w.parentElement?((w.parentElement.style.overflow||'')+(window.getComputedStyle(w.parentElement).overflow||'')).trim():'';
-          var inConstrainedParent=parentOvf.indexOf('hidden')!==-1||parentOvf.indexOf('clip')!==-1;
-          if(inConstrainedParent){
-            w.style.setProperty('max-width','100%','important');
-          }else{
-            w.style.setProperty('width','100%','important');
-            w.style.setProperty('max-width','100%','important');
-          }
-          if(mobileSrc)img.src=mobileSrc;
-          if(hasMobileOverrides){
-            var effZoom=(isFinite(mobileZoom)&&mobileZoom>0)?mobileZoom:(parseFloat(img.getAttribute('data-zappy-zoom'))||1);
-            var effPos=mobilePos||'50% 50%';
-            w.style.setProperty('overflow','hidden','important');
-            w.style.setProperty('position','relative','important');
-            w.style.setProperty('width','100%','important');
-            w.style.setProperty('max-width','100%','important');
-            var _sW=parseFloat(w.getAttribute('data-zappy-zoom-wrapper-width'))||0;
-            var _sH=parseFloat(w.getAttribute('data-zappy-zoom-wrapper-height'))||0;
-            if(_sW>0&&_sH>0){w.style.setProperty('aspect-ratio',_sW+'/'+_sH,'important');w.style.setProperty('height','auto','important');}
-            function _applyZoomCrop(_img,_w,_ePos,_eZoom){
-              var rect=_w.getBoundingClientRect();
-              if(!rect||!rect.width||!rect.height)return;
-              var nW=_img.naturalWidth||0,nH=_img.naturalHeight||0;
-              if(!(nW>0&&nH>0))return;
-              var iA=nW/nH,cA=rect.width/rect.height;
-              var cv=_coverPct(iA,cA);
-              var wP=100,hP=100;
-              if(_eZoom>=1){wP=cv.w*_eZoom;hP=cv.h*_eZoom;}
-              else{var t2=(_eZoom-0.5)/0.5;if(!isFinite(t2))t2=0;t2=Math.max(0,Math.min(1,t2));wP=100+t2*(cv.w-100);hP=100+t2*(cv.h-100);}
-              var p2=_parsePos(_ePos);
-              var lP=(100-wP)*(p2.x/100);
-              var tP=(100-hP)*(p2.y/100);
-              _img.style.setProperty('position','absolute','important');
-              _img.style.setProperty('left',lP+'%','important');
-              _img.style.setProperty('top',tP+'%','important');
-              _img.style.setProperty('width',wP+'%','important');
-              _img.style.setProperty('height',hP+'%','important');
-              _img.style.setProperty('max-width','none','important');
-              _img.style.setProperty('max-height','none','important');
-              _img.style.setProperty('display','block','important');
-              _img.style.setProperty('object-fit',_eZoom<1?'fill':'cover','important');
-              _img.style.setProperty('transform','none','important');
-              _img.style.setProperty('margin','0','important');
-            }
-            _applyZoomCrop(img,w,effPos,effZoom);
-            if(mobileSrc&&!(img.complete&&img.naturalWidth>0)){
-              (function(_i,_w2,_p,_z){_i.addEventListener('load',function _ol(){_i.removeEventListener('load',_ol);try{_applyZoomCrop(_i,_w2,_p,_z);}catch(e){}});
-              })(img,w,effPos,effZoom);
-            }
-          }else{
-            if(!inConstrainedParent)w.style.setProperty('height','auto','important');
-            img.style.setProperty('position','relative','important');
-            img.style.setProperty('width','100%','important');
-            img.style.setProperty('height','auto','important');
-            img.style.setProperty('max-width','100%','important');
-            img.style.setProperty('max-height',inConstrainedParent?'none':'400px','important');
-            img.style.setProperty('object-fit','cover','important');
-            img.style.setProperty('left','0','important');
-            img.style.setProperty('top','0','important');
-            img.style.setProperty('transform','none','important');
-          }
-        });
-        document.querySelectorAll('img[data-zappy-mobile-src],img[data-zappy-mobile-object-position],img[data-zappy-mobile-zoom]').forEach(function(img){
-          var zw=img.closest('[data-zappy-zoom-wrapper="true"]');
-          if(zw&&!_isHeroBg(zw))return;
-          if(!img._zappyDesktop)img._zappyDesktop={src:img.getAttribute('src'),style:img.getAttribute('style')};
-          var mobileSrc=img.getAttribute('data-zappy-mobile-src');
-          var mobilePos=img.getAttribute('data-zappy-mobile-object-position');
-          var mobileZoom=parseFloat(img.getAttribute('data-zappy-mobile-zoom'));
-          if(mobileSrc)img.src=mobileSrc;
-          if(mobilePos)img.style.setProperty('object-position',mobilePos,'important');
-          if(mobileZoom>1){
-            img.style.setProperty('transform','scale('+mobileZoom+')','important');
-            img.style.setProperty('transform-origin',mobilePos||'50% 50%','important');
-            var p=img.parentElement;
-            if(p)p.style.setProperty('overflow','hidden','important');
-          }
-        });
-      }
-      function revertDesktop(){
-        if(!_applied)return;_applied=false;
-        document.querySelectorAll('[data-zappy-zoom-wrapper="true"]').forEach(function(w){
-          if(w._zappyDesktop&&w._zappyDesktop.wStyle!=null){w.setAttribute('style',w._zappyDesktop.wStyle);}
-          var img=w.querySelector('img');
-          if(img&&img._zappyDesktop){
-            if(img._zappyDesktop.src!=null)img.setAttribute('src',img._zappyDesktop.src);
-            if(img._zappyDesktop.style!=null)img.setAttribute('style',img._zappyDesktop.style);
-            else img.removeAttribute('style');
-          }
-        });
-        document.querySelectorAll('img[data-zappy-mobile-src],img[data-zappy-mobile-object-position],img[data-zappy-mobile-zoom]').forEach(function(img){
-          var zw=img.closest('[data-zappy-zoom-wrapper="true"]');
-          if(zw&&!_isHeroBg(zw))return;
-          if(img._zappyDesktop){
-            if(img._zappyDesktop.src!=null)img.setAttribute('src',img._zappyDesktop.src);
-            if(img._zappyDesktop.style!=null)img.setAttribute('style',img._zappyDesktop.style);
-            else img.removeAttribute('style');
-          }
-        });
-        _fixHeroBgWrappers();
-        fixDesktopWrappers();
-      }
-      function _fixHeroBgWrappers(){var isMob=window.innerWidth<=768;document.querySelectorAll('[data-zappy-zoom-wrapper="true"]').forEach(function(w){if(!_isHeroBg(w))return;w.style.setProperty('position','absolute','important');w.style.setProperty('top','0','important');w.style.setProperty('left','0','important');w.style.setProperty('width','100%','important');w.style.setProperty('height','100%','important');w.style.setProperty('max-width','none','important');w.style.setProperty('overflow','hidden','important');w.setAttribute('data-zappy-zoom-wrapper-width-mode','full');var img=w.querySelector('img');if(img){img.style.setProperty('width','100%','important');img.style.setProperty('height','100%','important');img.style.setProperty('object-fit','cover','important');img.style.setProperty('position','relative','important');img.style.setProperty('top','0','important');img.style.setProperty('left','0','important');img.style.setProperty('max-width','none','important');img.style.setProperty('max-height','none','important');img.style.setProperty('display','block','important');if(isMob){var mSrc=img.getAttribute('data-zappy-mobile-src');var mPos=img.getAttribute('data-zappy-mobile-object-position');var mZoom=parseFloat(img.getAttribute('data-zappy-mobile-zoom'));if(mSrc){if(!img._zappyDesktop)img._zappyDesktop={src:img.getAttribute('src'),style:img.getAttribute('style')};img.src=mSrc;}if(mPos)img.style.setProperty('object-position',mPos,'important');if(mZoom>1){img.style.setProperty('transform','scale('+mZoom+')','important');img.style.setProperty('transform-origin',mPos||'50% 50%','important');}}}});}
-      function init(){
-        _fixHeroBgWrappers();
-        var mq=window.matchMedia('(max-width:768px)');
-        function onChange(e){if(e.matches)applyMobile();else revertDesktop();}
-        if(mq.matches)applyMobile();
-        else fixDesktopWrappers();
-        try{mq.addEventListener('change',onChange);}catch(e){mq.addListener(onChange);}
-      }
-      if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
-      else setTimeout(init,50);
     })();
     </script>
 </body>

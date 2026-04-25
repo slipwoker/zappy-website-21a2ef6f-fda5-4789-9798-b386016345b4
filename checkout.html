@@ -215,7 +215,30 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Checkout">
     <meta name="twitter:description" content="Checkout">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
     <link rel="stylesheet" href="/styles.css">
 
     <style id="zappy-dropdown-submenu-styles">
@@ -325,8 +348,7 @@
 
     <li class="menu-item-has-children zappy-products-dropdown">
       <a href="/products">
-        Products
-        
+        מוצרים
         <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M6 9l6 6 6-6"></path>
         </svg>
@@ -525,12 +547,12 @@
                 <div class="coupon-error" id="coupon-error" style="display: none;"></div>
               </div>
               <div class="order-totals">
-                <div class="order-totals-row"><span>Subtotal</span><span id="subtotal">₪0</span></div>
-                <div class="order-totals-row vat-row" id="vat-row"><span>VAT Included</span><span id="vat-amount">₪0</span></div>
-                <div class="order-totals-row"><span>Shipping</span><span id="shipping-cost">₪0</span></div>
-                <div class="order-totals-row discount-row" id="discount-row" style="display: none;"><span>Discount</span><span id="discount" class="discount-value">-₪0</span></div>
+                <div class="order-totals-row"><span>Subtotal</span><span id="subtotal">$0</span></div>
+                <div class="order-totals-row vat-row" id="vat-row"><span>VAT Included</span><span id="vat-amount">$0</span></div>
+                <div class="order-totals-row"><span>Shipping</span><span id="shipping-cost">$0</span></div>
+                <div class="order-totals-row discount-row" id="discount-row" style="display: none;"><span>Discount</span><span id="discount" class="discount-value">-$0</span></div>
                 <div class="checkout-order-divider"></div>
-                <div class="order-totals-row total"><span>Total</span><span id="order-total">₪0</span></div>
+                <div class="order-totals-row total"><span>Total</span><span id="order-total">$0</span></div>
               </div>
               <div class="terms-checkbox-wrapper">
                 <label class="terms-checkbox-label">
@@ -569,7 +591,7 @@
   <div class="cart-drawer-footer">
     <div class="cart-drawer-total">
       <span>Total:</span>
-      <span id="cart-drawer-total">₪0</span>
+      <span id="cart-drawer-total">$0</span>
     </div>
     <a href="/checkout" class="cart-drawer-checkout">Proceed to Checkout</a>
   </div>
@@ -653,6 +675,8 @@
     }
   })();
   </script>
+    <div data-integration="accessibility:toolbar"></div>
+
 
     <script src="/script.js"></script>
 
