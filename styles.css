@@ -15311,6 +15311,46 @@ main,
 }
 
 /* ==END ZAPPY V2 E-COMMERCE THEME CSS== */
+
+.navbar .nav-logo {
+  filter: brightness(0) !important;
+}
+
+#featured-products .product-card {
+  max-width: 136px !important;
+  width: 136px !important;
+}
+
+#featured-products .product-grid {
+  grid-template-columns: repeat(auto-fill, minmax(136px, 136px)) !important;
+  gap: 12px !important;
+}
+
+#featured-products .product-card .product-card-media {
+  height: 130px !important;
+}
+
+#featured-products .product-card .product-card-media img {
+  height: 130px !important;
+  object-fit: cover !important;
+}
+
+#featured-products .product-card .card-content h3 {
+  font-size: 0.75rem !important;
+}
+
+#featured-products .product-card .card-content .price {
+  font-size: 0.75rem !important;
+}
+
+#featured-products .product-card .card-content p {
+  font-size: 0.65rem !important;
+}
+
+#featured-products .product-card .add-to-cart {
+  font-size: 0.65rem !important;
+  padding: 6px 8px !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
