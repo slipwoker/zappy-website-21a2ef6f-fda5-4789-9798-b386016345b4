@@ -15351,6 +15351,12 @@ main,
   font-size: 0.65rem !important;
   padding: 6px 8px !important;
 }
+
+.featured-products-section .product-card .add-to-cart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
